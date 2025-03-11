@@ -3,8 +3,6 @@ const mustacheExpress = require("mustache-express");
 const path = require("path");
 const BookModel = require("./app.model");
 
-BookModel.makeConnection();
-
 const app = express();
 const router = express.Router();
 
@@ -21,29 +19,42 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/add", async (req, res) => {
-    const books = await BookModel.getAllBooks(); 
-    res.render("main_page", { books, showAddForm: true });
+   const books = await BookModel.getAllBooks(); 
+   res.render("main_page", { books, showAddForm: true });
   });
 
   router.get("/update/:id", async (req, res) => {
-    const books = await BookModel.getAllBooks(); 
-    const book = await BookModel.getBookById(id);
-    res.render("main_page", { books, showUpdateForm: true, book });
+    try {
+      const { id } = req.params; 
+      console.log("Updating book with ID:", id); 
+  
+      const books = await BookModel.getAllBooks();
+      const book = await BookModel.getBookById(id);
+  
+      if (!book) {
+        return res.status(404).send("Book not found");
+      }
+  
+      res.render("main_page", { books, showUpdateForm: true, book });
+    } catch (error) {
+      console.error("Error fetching book for update:", error);
+      res.status(500).send("Internal Server Error");
+    }
   });
 
 router.post("/add", async (req, res) => {
-  const { title, author, genre, rating } = req.body;
-  await BookModel.addBook(title, author, genre, rating);
+  const { title, author, genre, rating, review, date_read, status } = req.body;
+  await BookModel.addBook(title, author, genre, rating, review, date_read, status);
   res.redirect("/");
-});
-
+  });
+  
 router.post("/update/:id", async (req, res) => {
   const { id } = req.params;
-  const { title, author, genre, rating } = req.body;
-  await BookModel.updateBook(id, title, author, genre, rating);
+  const { title, author, genre, rating, review, date_read, status } = req.body;
+  await BookModel.updateBook(id, title, author, genre, rating, review, date_read, status);
   res.redirect("/");
-});
-
+  });
+  
 router.get("/delete/:id", async (req, res) => {
   const { id } = req.params;
   await BookModel.deleteBook(id);
@@ -74,10 +85,5 @@ router.get("/sort/:field", async (req, res) => {
 });
 
 app.use("/", router);
-
-app.get(/^(.+)$/, function(req,res) 
-{
-  res.sendFile( __dirname + req.params[0]);
-});
 
 app.listen(3000, function() { console.log("server listening on port 3000...")});
