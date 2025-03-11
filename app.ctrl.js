@@ -4,7 +4,8 @@ const BookModel = require("./app.model");
 
 const app = express();
 const router = express.Router();
-app.use(express.static("images"));
+app.use("/images", express.static("images"));
+
 
 app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
@@ -26,6 +27,7 @@ router.get("/add", async (req, res) => {
 router.get("/update/:id", async (req, res) => {
     try {
       const { id } = req.params; 
+
       const books = await BookModel.getAllBooks();
       const book = await BookModel.getBookById(id);
   
