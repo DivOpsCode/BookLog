@@ -18,54 +18,54 @@
 </div>
 
 <div class="d-flex align-items-center justify-content-between mb-3">
-  <div class="d-flex">
-    <a href="/add" class="btn btn-success me-2">➕ Add Book</a>
-    <a href="/delete-all" class="btn btn-danger me-2">🗑 Delete All Books</a>
+  <div class="d-flex flex-column flex-md-row w-100 mb-3 mb-md-0">
+    <a href="/add" class="btn btn-success me-md-2 mb-2 mb-md-0">➕ Add Book</a>
+    <a href="/delete-all" class="btn btn-danger me-md-2 mb-2 mb-md-0">🗑 Delete All Books</a>
     <a href="https://www.goodreads.com/list?ref=nav_brws_lists" target="_blank" class="btn btn-outline-primary">
       Visit Goodreads
     </a>
   </div>
-
 </div>
 
 
 
+  <div class="table-responsive">
   <table class="table table-bordered table-hover">
     <thead class="table-dark">
       <tr>
-       <th>ID</th>
+        <th>ID</th>
         <th>
-  <div class="d-flex align-items-center">
-    <span>Title</span>
-    <a href="/sort/title" class="ms-2 btn btn-sm btn-outline-primary">🔽</a>
-    <a href="/" class="ms-2 btn btn-sm btn-outline-secondary">🔼</a>
-  </div>
-</th>
+          <div class="d-flex align-items-center">
+            <span>Title</span>
+            <a href="/sort/title" class="ms-2 btn btn-sm btn-outline-primary">🔽</a>
+            <a href="/" class="ms-2 btn btn-sm btn-outline-secondary">🔼</a>
+          </div>
+        </th>
         <th>Author</th>
-        <th>Genre</th>
-        <th>Rating</th>
-        <th>Review</th>
-        <th>Date Read</th>
-        <th>Status</th>
+        <th class="d-none d-md-table-cell">Genre</th>
+        <th class="d-none d-md-table-cell">Rating</th>
+        <th class="d-none d-md-table-cell">Review</th>
+        <th class="d-none d-md-table-cell">Date Read</th>
+        <th class="d-none d-md-table-cell">Status</th>
         <th>Favorite</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       {{#books}}
+      <tr>
         <td>{{id}}</td>
         <td>{{title}}</td>
         <td>{{author}}</td>
-        <td>{{genre}}</td>
-        <td>{{rating}} ⭐</td>
-        <td class="truncate-text" title="{{review}}">{{review}}</td>
-        <td>{{date_read}}</td>
-        <td>
+        <td class="d-none d-md-table-cell">{{genre}}</td>
+        <td class="d-none d-md-table-cell">{{rating}} ⭐</td>
+        <td class="d-none d-md-table-cell" class="truncate-text" title="{{review}}">{{review}}</td>
+        <td class="d-none d-md-table-cell">{{date_read}}</td>
+        <td class="d-none d-md-table-cell">
           <span class="badge text-dark {{#status_read}}bg-success{{/status_read}} {{#status_to_read}}bg-warning{{/status_to_read}}">
-          {{status}}
+            {{status}}
           </span>
         </td>
-
         <td class="text-center">
           <a href="/favorite/{{id}}" class="favorite-icon">
             {{#is_favorite}}⭐{{/is_favorite}}
@@ -80,6 +80,8 @@
       {{/books}}
     </tbody>
   </table>
+</div>
+
 
   <!-- Add Book Form -->
  <!-- Add Book Form -->
