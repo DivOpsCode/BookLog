@@ -22,15 +22,26 @@ db.serialize(function () {
 
   // Dummy records into the Books table
   db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["The Great Gatsby", "F. Scott Fitzgerald", "Classic", 5, "A timeless classic about the American dream.", "2024-01-15", "read", 1]);
-  db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["To Kill a Mockingbird", "Harper Lee", "Fiction", 4, "A compelling story about justice and morality.", "2023-12-20", "read", 1]);
-  db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["1984", "George Orwell", "Dystopian", 5, "A chilling vision of totalitarianism.", "2023-11-10", "read", 0]);
-  db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["The Hobbit", "J.R.R. Tolkien", "Fantasy", 4, "An adventure-filled prequel to The Lord of the Rings.", "2023-10-05", "read", 1]);
-  db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["Atomic Habits", "James Clear", "Self-Help", 5, "A great book on forming good habits.", "2023-09-01", "read", 0]);
+    ["The Catcher in the Rye", "J.D. Salinger", "Classic", 4, "A coming-of-age novel with deep themes.", "2023-08-15", "read", 1]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["Pride and Prejudice", "Jane Austen", "Romance", 5, "A timeless romance with witty social commentary.", "2023-07-20", "read", 1]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["Sapiens", "Yuval Noah Harari", "History", 5, "A fascinating look at the history of humankind.", "2023-06-10", "to-read", 0]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["The Alchemist", "Paulo Coelho", "Fiction", 4, "A philosophical novel about chasing dreams.", "2023-05-05", "read", 1]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["Dune", "Frank Herbert", "Science Fiction", 5, "An epic sci-fi novel with deep world-building.", "2023-04-01", "read", 0]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["Thinking, Fast and Slow", "Daniel Kahneman", "Psychology", 5, "A great book on how we think and make decisions.", "2023-03-10", "read", 1]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["The Subtle Art of Not Giving a F*ck", "Mark Manson", "Self-Help", 4, "A refreshing perspective on personal growth.", "2023-02-20", "to-read", 0]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["Brave New World", "Aldous Huxley", "Dystopian", 5, "A haunting vision of a controlled future.", "2023-01-15", "read", 1]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["The Road", "Cormac McCarthy", "Post-Apocalyptic", 4, "A harrowing tale of survival and fatherhood.", "2022-12-10", "read", 0]);
+db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
+    ["The Martian", "Andy Weir", "Science Fiction", 5, "A thrilling story of survival on Mars.", "2022-11-05", "to-read", 1]);
+
 
 });
 

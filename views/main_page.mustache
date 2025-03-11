@@ -14,15 +14,21 @@
 
   <div class="d-flex justify-content-between align-items-center mb-4">
   <h1 class="mb-0">📚 Book Tracker Application</h1>
-  <a href="https://www.goodreads.com/list?ref=nav_brws_lists" target="_blank" class="btn btn-outline-primary">
-    Visit Goodreads
-  </a>
+  <img src="book-cover.jpg" alt="Book Cover" class="img-fluid d-none d-md-block" style="width: 30%; max-height: 200px;">
 </div>
 
-  <div class="d-flex justify-content-between mb-3">
-    <a href="/add" class="btn btn-success">➕ Add Book</a>
-    <a href="/delete-all" class="btn btn-danger">🗑 Delete All Books</a>
+<div class="d-flex align-items-center justify-content-between mb-3">
+  <div class="d-flex">
+    <a href="/add" class="btn btn-success me-2">➕ Add Book</a>
+    <a href="/delete-all" class="btn btn-danger me-2">🗑 Delete All Books</a>
+    <a href="https://www.goodreads.com/list?ref=nav_brws_lists" target="_blank" class="btn btn-outline-primary">
+      Visit Goodreads
+    </a>
   </div>
+
+</div>
+
+
 
   <table class="table table-bordered table-hover">
     <thead class="table-dark">
@@ -32,8 +38,7 @@
   <div class="d-flex align-items-center">
     <span>Title</span>
     <a href="/sort/title" class="ms-2 btn btn-sm btn-outline-primary">🔽</a>
-    <a href="/" class="ms-2 btn btn-sm btn-outline-secondary">
-</a>
+    <a href="/" class="ms-2 btn btn-sm btn-outline-secondary">🔼</a>
   </div>
 </th>
         <th>Author</th>
@@ -83,33 +88,33 @@
   <form action="/add" method="POST" class="row g-3">
     <div class="col-md-6">
       <label class="form-label">Title</label>
-      <input type="text" name="title" class="form-control" required>
+      <input type="text" name="title" class="form-control" value="{{formData.title}}" required>
     </div>
     <div class="col-md-6">
       <label class="form-label">Author</label>
-      <input type="text" name="author" class="form-control" required>
+      <input type="text" name="author" class="form-control" value="{{formData.author}}" required>
     </div>
     <div class="col-md-6">
       <label class="form-label">Genre</label>
-      <input type="text" name="genre" class="form-control" required>
+      <input type="text" name="genre" class="form-control" value="{{formData.genre}}" required>
     </div>
     <div class="col-md-6">
       <label class="form-label">Rating (1-5)</label>
-      <input type="number" name="rating" min="1" max="5" class="form-control" required>
+      <input type="number" name="rating" min="1" max="5" class="form-control" value="{{formData.rating}}" required>
     </div>
     <div class="col-md-12">
       <label class="form-label">Review</label>
-      <textarea name="review" class="form-control"></textarea>
+      <textarea name="review" class="form-control">{{formData.review}}</textarea>
     </div>
     <div class="col-md-6">
       <label class="form-label">Date Read</label>
-      <input type="date" name="date_read" class="form-control">
+      <input type="date" name="date_read" class="form-control" value="{{formData.date_read}}">
     </div>
     <div class="col-md-6">
       <label class="form-label">Status</label>
       <select name="status" class="form-select">
-        <option value="read">Read</option>
-        <option value="to-read">To Read</option>
+      <option value="read" {{#formData.status_read}}selected{{/formData.status_read}}>Read</option>
+  <option value="to-read" {{#formData.status_to_read}}selected{{/formData.status_to_read}}>To Read</option>
       </select>
     </div>
     <div class="col-12">
@@ -162,6 +167,11 @@
     </div>
   </form>
   {{/showUpdateForm}}
+{{#errors}}
+  <div class="alert alert-danger">
+    {{.}}
+  </div>
+{{/errors}}
 
 </body>
 </html>
