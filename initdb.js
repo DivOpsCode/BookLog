@@ -31,17 +31,6 @@ db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, stat
     ["The Alchemist", "Paulo Coelho", "Fiction", 4, "A philosophical novel about chasing dreams.", "2023-05-05", "read", 1]);
 db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
     ["Dune", "Frank Herbert", "Science Fiction", 5, "An epic sci-fi novel with deep world-building.", "2023-04-01", "read", 0]);
-db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["Thinking, Fast and Slow", "Daniel Kahneman", "Psychology", 5, "A great book on how we think and make decisions.", "2023-03-10", "read", 1]);
-db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["The Subtle Art of Not Giving a F*ck", "Mark Manson", "Self-Help", 4, "A refreshing perspective on personal growth.", "2023-02-20", "to-read", 0]);
-db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["Brave New World", "Aldous Huxley", "Dystopian", 5, "A haunting vision of a controlled future.", "2023-01-15", "read", 1]);
-db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["The Road", "Cormac McCarthy", "Post-Apocalyptic", 4, "A harrowing tale of survival and fatherhood.", "2022-12-10", "read", 0]);
-db.run("INSERT INTO Books (title, author, genre, rating, review, date_read, status, is_favorite) VALUES (?,?,?,?,?,?,?,?)", 
-    ["The Martian", "Andy Weir", "Science Fiction", 5, "A thrilling story of survival on Mars.", "2022-11-05", "to-read", 1]);
-
 
 });
 

@@ -26,8 +26,6 @@ router.get("/add", async (req, res) => {
 router.get("/update/:id", async (req, res) => {
     try {
       const { id } = req.params; 
-      console.log("Updating book with ID:", id); 
-  
       const books = await BookModel.getAllBooks();
       const book = await BookModel.getBookById(id);
   
