@@ -100,7 +100,15 @@ module.exports = {
     });
   },
 
-
+  getBooksByGenre: (genre) => {
+    return new Promise((resolve, reject) => {
+      db.all("SELECT * FROM Books WHERE genre = ?", [genre], (err, rows) => {
+        if (err) reject(err);
+        resolve(rows);
+      });
+    });
+  },
+   
   sortBooks: (field) => {
     return new Promise((resolve, reject) => {
       db.all(`SELECT * FROM Books ORDER BY ${field} ASC`, [], (err, rows) => {

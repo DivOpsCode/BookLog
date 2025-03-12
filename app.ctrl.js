@@ -69,6 +69,12 @@ router.post("/add", async (req, res) => {
     res.redirect("/");
   });
   
+router.get("/filter", async (req, res) => {
+    const { genre } = req.query;
+    const books = genre ? await BookModel.getBooksByGenre(genre) : await BookModel.getAllBooks();
+    res.render("main_page", { books });
+  });
+  
   
 router.post("/update/:id", async (req, res) => {
     const { id } = req.params;

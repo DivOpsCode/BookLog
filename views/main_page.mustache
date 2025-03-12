@@ -24,12 +24,25 @@
   <div class="d-flex flex-column flex-md-row w-100 mb-3 mb-md-0">
     <a href="/add" class="btn btn-success me-md-2 mb-2 mb-md-0">➕ Add Book</a>
     <a href="/delete-all" class="btn btn-danger me-md-2 mb-2 mb-md-0">🗑 Delete All Books</a>
-    <a href="https://www.goodreads.com/list?ref=nav_brws_lists" target="_blank" class="btn btn-outline-primary">
-      Visit Goodreads
-    </a>
+  <a href="https://www.goodreads.com/list?ref=nav_brws_lists" target="_blank" class="btn btn-outline-primary rounded-pill px-4 py-2 font-weight-bold text-uppercase shadow-sm hover-bg-primary">
+  Visit Goodreads
+</a>
   </div>
 </div>
-
+<div>
+<form action="/filter" method="GET" class="mb-3 d-flex gap-2">
+  <select name="genre" class="form-select w-auto">
+    <option value="">All Genres</option>
+    {{#books}}
+      <option value="{{genre}}">{{genre}}</option>
+    {{/books}}
+  </select>
+  <button type="submit" class="btn btn-primary">Filter</button>
+  <a href="/filter" class="btn btn-outline-danger rounded-pill px-4 py-2 shadow-sm hover-shadow-lg">
+  Clear Filters
+</a>
+</form>
+</div>
 
 
   <div class="table-responsive">
@@ -85,9 +98,6 @@
   </table>
 </div>
 
-
-  <!-- Add Book Form -->
- <!-- Add Book Form -->
   {{#showAddForm}}
   <h2 class="mt-4">Add a Book</h2>
   <form action="/add" method="POST" class="row g-3">
@@ -130,8 +140,6 @@
   {{/showAddForm}}
 
 
-
-  <!-- Update Book Form -->
   {{#showUpdateForm}}
   <h2 class="mt-4">Update Book</h2>
   <form action="/update/{{book.id}}" method="POST" class="row g-3">

@@ -12,7 +12,7 @@ db.serialize(function () {
       title TEXT NOT NULL,
       author TEXT NOT NULL,
       genre TEXT NOT NULL,
-      rating INTEGER CHECK (rating BETWEEN 1 AND 5),
+      rating REAL CHECK (rating BETWEEN 1 AND 5),
       review TEXT,
       date_read TEXT,
       status TEXT CHECK (status IN ('read', 'to-read')),
