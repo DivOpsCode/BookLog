@@ -1,0 +1,16 @@
+# How to run the Book Tracker Application
+
+1. Navigate to the project folder 
+   cd booklog
+
+2. Install dependencies
+   npm install
+
+3. Initialize the database (if required)
+   node initdb.js
+
+4. Start the application: 
+   npm start
+
+5. Open the below link in browser 
+    http://localhost:3000/

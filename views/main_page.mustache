@@ -48,7 +48,7 @@
         <th class="d-none d-md-table-cell">Genre</th>
         <th class="d-none d-md-table-cell">Rating</th>
         <th class="d-none d-md-table-cell">Review</th>
-        <th class="d-none d-md-table-cell">Date Read</th>
+        <th class="d-none d-md-table-cell">Entry Date </th>
         <th class="d-none d-md-table-cell">Status</th>
         <th>Favorite</th>
         <th>Actions</th>
@@ -75,10 +75,10 @@
             {{^is_favorite}}☆{{/is_favorite}}
           </a>
         </td>
-        <td>
-          <a href="/update/{{id}}" class="btn btn-warning btn-sm">Edit</a>
-          <a href="/delete/{{id}}" class="btn btn-danger btn-sm">Delete</a>
-        </td>
+       <td class="d-flex gap-2">
+  <a href="/update/{{id}}" class="btn btn-warning btn-sm">Edit</a>
+  <a href="/delete/{{id}}" class="btn btn-danger btn-sm">Delete</a>
+</td>
       </tr>
       {{/books}}
     </tbody>
@@ -112,7 +112,7 @@
       <textarea name="review" class="form-control">{{formData.review}}</textarea>
     </div>
     <div class="col-md-6">
-      <label class="form-label">Date Read</label>
+      <label class="form-label">Entry Date</label>
       <input type="date" name="date_read" class="form-control" value="{{formData.date_read}}">
     </div>
     <div class="col-md-6">
@@ -156,7 +156,7 @@
       <textarea name="review" class="form-control">{{book.review}}</textarea>
     </div>
     <div class="col-md-6">
-      <label class="form-label">Date Read</label>
+      <label class="form-label">Entry Date</label>
       <input type="date" name="date_read" class="form-control" value="{{book.date_read}}">
     </div>
     <div class="col-md-6">

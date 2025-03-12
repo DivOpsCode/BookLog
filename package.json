@@ -1,0 +1,14 @@
+{
+  "name": "book-tracker",
+  "version": "1.0.0",
+  "description": "A simple Book Tracker application using Express, Mustache, and SQLite.",
+  "main": "app.ctrl.js",
+  "scripts": {
+    "start": "node app.ctrl.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mustache-express": "^1.3.2",
+    "sqlite3": "^5.1.6"
+  }
+}
